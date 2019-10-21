@@ -1,4 +1,7 @@
 .box {
-    display: flex;
+    display: inline-flex;
     padding: 10px;
+ }
+ .container {
+    text-align: center;
  }

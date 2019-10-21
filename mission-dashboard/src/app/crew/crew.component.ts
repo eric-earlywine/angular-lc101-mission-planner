@@ -11,5 +11,5 @@ export class CrewComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  crew: string[] = ["Jessica Watkins", "Raja Chari", "Jasmin Moghbeli"];
 }
