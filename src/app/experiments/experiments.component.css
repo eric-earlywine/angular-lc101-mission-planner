@@ -6,3 +6,10 @@
 h3 {
     text-align: center;
 }
+li {
+    cursor: pointer;
+}
+.selected {
+    color: purple;
+    font-weight: bold;
+}

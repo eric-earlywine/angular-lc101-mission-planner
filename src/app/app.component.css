@@ -2,4 +2,10 @@
     display: flex;
     padding: 10px;
     justify-content: space-evenly;
+    background-color: pink;
+}
+.header {
+    background-color: lightblue;
+    display: flex;
+    justify-content: center;
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Equipment } from '../equipment';
 
 @Component({
   selector: 'app-equipment',
@@ -6,18 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./equipment.component.css']
 })
 export class EquipmentComponent implements OnInit {
-   equipmentItems: object[] = [
-       {name: 'Duct Tape', mass: 0.5},
-       {name: 'Space Camera', mass: 20},
-       {name: 'Food', mass: 150},
-       {name: 'Oxygen Tanks', mass: 400},
-       {name: 'AE-35 Unit', mass: 5},
-       {name: 'ISS Supplies', mass: 800},
-       {name: 'Water', mass: 250},
-       {name: 'Satellite', mass: 1200},
-       {name: 'R2 Unit', mass: 32}
+   equipmentItems: Equipment[] = [
+       new Equipment('Duct Tape', 0.5),
+       new Equipment('Space Camera', 20),
+       new Equipment('Food', 150),
+       new Equipment('Oxygen Tanks', 400),
+       new Equipment('AE-35 Unit', 5),
+       new Equipment('ISS Supplies', 800),
+       new Equipment('Water', 250),
+       new Equipment('Satellite', 1200),
+       new Equipment('R2 Unit', 32)
    ];
-   cargoHold: object[] = [];
+   cargoHold: Equipment[] = [];
    cargoMass: number = 0;
    maximumAllowedMass: number = 2000;
    maxItems: number = 10;
@@ -37,11 +38,21 @@ export class EquipmentComponent implements OnInit {
      }
      return false;
    }
-   canAdd(mass: number): boolean {
-     if (this.cargoHold.length === this.maxItems || (this.cargoMass + mass) > this.maximumAllowedMass) {
+   canAdd(item): boolean {
+     let numOfItem = 0;
+     for (let i = 0; i < this.cargoHold.length; i++) {
+       if (this.cargoHold[i].name === item.name) {
+         numOfItem++;
+       }
+     }
+     if (this.cargoHold.length === this.maxItems || (this.cargoMass + item.mass) > this.maximumAllowedMass || numOfItem >= 2) {
        return true;
      }
      return false;
+   }
+   remItem(num): void {
+    this.cargoMass -= this.cargoHold[num].mass;
+    this.cargoHold.splice(num, 1);
    }
    emptyHold(): void {
      this.cargoHold = [];

@@ -11,4 +11,8 @@
         <li (mouseover)="mousedOver = astronaut" (mouseout)="mousedOver = false" class="selected" *ngFor="let astronaut of crew">{{astronaut.name}}</li>
     </ol>
     <img *ngIf="mousedOver" [src]="mousedOver.photo">
+    <ul *ngIf="mousedOver">
+        <li>Height: {{mousedOver.height}}</li>
+        <li>Age: {{mousedOver.age}}</li>
+    </ul>
 </div>

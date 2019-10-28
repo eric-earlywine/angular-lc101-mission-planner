@@ -11,7 +11,14 @@ button {
 h3 {
     text-align: center;
 }
-
+.container {
+    display: flex;
+    padding: 10px;
+    justify-content: space-evenly;
+}
+.cursor {
+    cursor: pointer;
+}
 /* Add an 'active' class to style the background of the 'Add to Cargo Hold' buttons. */
 .active {
     background-color: yellow;
